@@ -137,3 +137,55 @@
 # >>> 10 if False else -10
 # -10
 
+
+# логические операторы
+# >>> not True
+# False
+# >>> not False
+# True
+# >>>
+# >>> not 1
+# False
+# >>> not 0
+# True
+
+# >>> True and True
+# True
+# >>> True and False
+# False
+# >>> False and True
+# False
+
+# >>> 1 and 0
+# 0
+# >>> 1 and 0 and None
+# 0
+# >>> 1 and '' and None
+# ''
+# >>> 0 and '' and None
+# 0
+# >>> 1 and 2 and 3
+# 3
+
+# >>> 1 or 0
+# 1
+# >>> '' or 1 or 0
+# 1
+# >>> '' or 0 or [1, 2]
+# [1, 2]
+
+# >>> 1 + 1 and 1 - 1
+# 0
+
+# >>> print('выражение 1') and print('выражение 2') and print('выражение 3')
+# выражение 1
+# >>>
+# >>> print('выражение 1') is None and print('выражение 2') and print('выражение 3')
+# выражение 1
+# выражение 2
+# >>>
+# >>> print('выражение 1') is None and print('выражение 2') is None and print('выражение 3')
+# выражение 1
+# выражение 2
+# выражение 3
+
