@@ -189,3 +189,38 @@
 # выражение 2
 # выражение 3
 
+
+# оператор проверки на идентичность
+# >>> result1 = print('чётное') if 14 % 2 == 0 else print('нечётное')
+# чётное
+# >>> type(result1)
+# <class 'NoneType'>
+# >>> id(result1)
+# 140708767245824
+# >>>
+# >>> result2 = print('чётное') if 13 % 2 == 0 else print('нечётное')
+# нечётное
+# >>> type(result2)
+# <class 'NoneType'>
+# >>> id(result2)
+# 140708767245824
+# >>>
+# >>> result1 is result2
+# True
+# >>> result1 is result2 is None
+# True
+
+# >>> t1 = 'abc'
+# >>> id(t1)
+# 140708766955328
+# >>>
+# >>> t2 = 'abc'
+# >>> id(t2)
+# 140708766955328
+# >>>
+# >>> t1 is t2
+# True
+# >>>
+# >>> id(t1) == id(t2)
+# True
+
