@@ -57,3 +57,76 @@
 # >>> range(5) + range(5, 10)
 # TypeError: unsupported operand type(s) for +: 'range' and 'range'
 
+
+# сравнительные операторы
+# >>> 1 == 1
+# True
+# >>> 1 == 2
+# False
+# >>>
+# >>> 3 != 4
+# True
+# >>> 3 != 3
+# False
+# >>>
+# >>> 4 > 3
+# True
+# >>> 4 > 5
+# False
+# >>> 4 > 4
+# False
+# >>>
+# >>> 4 >= 3
+# True
+# >>> 4 >= 5
+# False
+# >>> 4 >= 4
+# True
+
+
+# сравнение последовательностей
+# >>> 'abc' == 'ABC'
+# False
+# >>>
+# >>> ord('b')
+# 98
+# >>> ord('B')
+# 66
+# >>>
+# >>> 'z' == 'zz'
+# False
+# >>>
+# >>> 'abc' > 'aaa'
+# True
+# >>>
+# >>> ord('a')
+# 97
+# >>> ord('b')
+# 98
+# >>>
+# >>> 'abc' > 'aaz'
+# True
+# >>>
+# >>> 'a' < 'aaa'
+# True
+# >>>
+# >>> 'ab' > 'aazz'
+# True
+# >>>
+# >>> '9' < '12'
+# False
+# >>>
+# >>> ord('9')
+# 57
+# >>> ord('1')
+# 49
+# >>>
+# >>> [1, 2, 3] < [4, 5, 6]
+# True
+# >>>
+# >>> (1, 2, 3) < (4, 5, 6)
+# True
+# >>>
+# >>> ('ab', 'cd') < (10, 20)
+# TypeError: '<' not supported between instances of 'str' and 'int'
+
