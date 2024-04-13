@@ -130,3 +130,10 @@
 # >>> ('ab', 'cd') < (10, 20)
 # TypeError: '<' not supported between instances of 'str' and 'int'
 
+
+# условный оператор
+# >>> 10 if True else -10
+# 10
+# >>> 10 if False else -10
+# -10
+
