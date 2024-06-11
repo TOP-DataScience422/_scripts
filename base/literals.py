@@ -33,17 +33,24 @@ said:
 
 r'C:\Program Files\Notepad++\notepad++.exe'
 
+''
+
+# bytes
 b'0x700x720xA1'
 
 
 # tuple
+()
 (10, )
 (1, 3.21, 'word')
 
 # list
+[]
+[8]
 ['text', 7, .95]
 
 # dict
+{}
 {'key 1': 190, 46: [.1, .2]}
 
 # set
