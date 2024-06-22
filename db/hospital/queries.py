@@ -73,3 +73,54 @@ distinct round(avg(salary), -2) as "average salary"
     join doctors_specs as ds
       on d.id = doctor_id;
 '''
+
+sel_deps_wards_cnt = '''
+  select d.name as "department",
+         count(*) as "wards"
+    from departments as d
+    join wards as w
+      on d.id = dep_id
+group by d.name;
+'''
+sel_deps_wards_names = '''
+  select d.name as "department",
+         string_agg(w.name, ', ') as "wards"
+    from departments as d
+    join wards as w
+      on d.id = dep_id
+group by d.name;
+'''
+sel_donations_for_deps = '''
+  select name as "department",
+         sum(amount) as "total"
+    from departments as dep
+    join donations as don
+      on dep.id = dep_id
+group by name;
+'''
+sel_donations_for_deps_years = '''
+  select name as "department",
+         date_part(
+           'year', 
+           cast(date as timestamp)
+         ) as "year",
+         sum(amount) as "total"
+    from departments as dep
+    join donations as don
+      on dep.id = dep_id
+group by "department", "year"
+order by "department", "year";
+'''
+sel_vacation_days_by_weeks = '''
+select 
+  case when end_date-start_date <= 7 then 'до 1 недели'
+       when end_date-start_date <= 14 then 'от 1 до 2 недель'
+       else 'больше 2 недель'
+  end as "days",
+  count(*) as "count"
+from 
+  vacations
+group by
+  "days";
+'''
+
