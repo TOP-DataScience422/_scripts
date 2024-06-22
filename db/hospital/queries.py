@@ -1,47 +1,47 @@
 ins_departments = (
-    'insert departments'
+    'insert into departments'
     '  (name)'
     'values'
     '  (%s)'
 )
 ins_sponsors = (
-    'insert sponsors'
+    'insert into sponsors'
     '  (name)'
     'values'
     '  (%s)'
 )
 ins_specializations = (
-    'insert specializations'
+    'insert into specializations'
     '  (name)'
     'values'
     '  (%s)'
 )
 ins_wards = (
-    'insert wards'
+    'insert into wards'
     '  (dep_id, name)'
     'values'
     '  (%s, %s)'
 )
 ins_donations = (
-    'insert donations'
+    'insert into donations'
     '  (sponsor_id, dep_id, date, amount)'
     'values'
     '  (%s, %s, %s, %s)'
 )
 ins_doctors = (
-    'insert doctors'
+    'insert into doctors'
     '  (dep_id, last_name, first_name, patr_name, salary, premium)'
     'values'
     '  (%s, %s, %s, %s, %s, %s)'
 )
 ins_doctors_specs = (
-    'insert doctors_specs'
+    'insert into doctors_specs'
     '  (doctor_id, spec_id)'
     'values'
     '  (%s, %s)'
 )
 ins_vacations = (
-    'insert vacations'
+    'insert into vacations'
     '  (doctor_id, start_date, end_date)'
     'values'
     '  (%s, %s, %s)'
@@ -66,3 +66,10 @@ sel_doctors_specs = '''
 order by full_name;
 '''
 
+sel_doctors_avg_salary = '''
+  select 
+distinct round(avg(salary), -2) as "average salary"
+    from doctors as d
+    join doctors_specs as ds
+      on d.id = doctor_id;
+'''
