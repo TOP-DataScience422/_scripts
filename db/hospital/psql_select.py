@@ -32,6 +32,9 @@ with connection.cursor() as cursor:
     
     cursor.execute(queries.sel_vacation_days_by_weeks)
     vacation_days_by_weeks = cursor.fetchall()
+    
+    cursor.execute(queries.sel_jun_avg_salary)
+    sel_jun_avg_salary = cursor.fetchall()
 
 
 # >>> doctors_avg_salary
@@ -107,4 +110,7 @@ with connection.cursor() as cursor:
 
 # >>> vacation_days_by_weeks
 # [('от 1 до 2 недель', 104), ('больше 2 недель', 101), ('до 1 недели', 45)]
+
+# >>> sel_jun_avg_salary
+# [(Decimal('57200'),)]
 

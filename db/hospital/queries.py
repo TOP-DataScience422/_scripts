@@ -124,3 +124,12 @@ group by
   "days";
 '''
 
+sel_jun_avg_salary = '''
+   select round(avg(salary), -2) as "average salary"
+     from doctors as d
+left join doctors_specs as ds
+       on d.id = doctor_id
+    where spec_id is null;
+'''
+
+
