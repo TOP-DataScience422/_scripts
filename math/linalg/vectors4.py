@@ -21,6 +21,22 @@ v2_flat = v2.flatten()
 # np.int64(70)
 
 
+# >>> 100 * v1_flat
+# array([100, 200, 300, 400])
+# >>>
+# >>> 0.01 * v1_flat
+# array([0.01, 0.02, 0.03, 0.04])
+# >>>
+# >>> dot(v1_flat, v2_flat)
+# np.int64(70)
+# >>>
+# >>> dot(100*v1_flat, v2_flat)
+# np.int64(7000)
+# >>>
+# >>> dot(0.01*v1_flat, v2_flat)
+# np.float64(0.7)
+
+
 a = array([0, 1, 2])
 b = array([3, 5, 8])
 c = array([13, 21, 34])
