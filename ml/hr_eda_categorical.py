@@ -1,3 +1,4 @@
+from matplotlib import pyplot as plt
 from pandas import read_csv, crosstab, Categorical
 
 from itertools import count
@@ -59,4 +60,74 @@ dep_to_sel = crosstab(hr_enc['DEP'], hr_enc['SAL'])
 # product_mng   451     383    68
 # marketing     402     376    80
 # RandD         364     372    51
+
+prom_to_left = crosstab(hr_enc['PROM5'], hr_enc['left'])
+
+# >>> prom_to_left
+# left       0     1
+# PROM5
+# 0      11128  3552
+# 1        300    19
+
+prom_to_left_norm = crosstab(hr_enc['PROM5'], hr_enc['left'], normalize='index')
+
+# >>> prom_to_left_norm.round(2)
+# left      0     1
+# PROM5
+# 0      0.76  0.24
+# 1      0.94  0.06
+
+
+hr_enc2 = hr_enc.loc[:, ('WA', 'PROM5', 'SAL', 'left')]
+hr_enc2['SAL'] = hr_enc['SAL'].cat.codes
+
+# >>> hr_enc2.corr(method='kendall').round(2)
+#          WA  PROM5   SAL  left
+# WA     1.00   0.04  0.01 -0.15
+# PROM5  0.04   1.00  0.09 -0.06
+# SAL    0.01   0.09  1.00 -0.15
+# left  -0.15  -0.06 -0.15  1.00
+
+
+for var in numerical:
+    aggr = hr_enc.groupby('left')[var]
+    print(aggr.mean().round(2), end='\n\n')
+
+# left
+# 0    0.67
+# 1    0.44
+# Name: SAT_LVL, dtype: float64
+# 
+# left
+# 0    0.72
+# 1    0.72
+# Name: LE, dtype: float64
+# 
+# left
+# 0    3.79
+# 1    3.86
+# Name: NP, dtype: float64
+# 
+# left
+# 0    199.06
+# 1    207.42
+# Name: AMH, dtype: float64
+# 
+# left
+# 0    3.38
+# 1    3.88
+# Name: TSC, dtype: float64
+
+
+plt.scatter(
+    hr_enc['AMH'], 
+    hr_enc['SAT_LVL'].where(hr_enc['left'] == 0),
+    color='b'
+)
+plt.scatter(
+    hr_enc['AMH'], 
+    hr_enc['SAT_LVL'].where(hr_enc['left'] == 1),
+    color='r'
+)
+
 
