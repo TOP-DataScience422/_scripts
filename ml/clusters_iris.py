@@ -3,6 +3,7 @@ from numpy import array
 from pandas import DataFrame
 from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
+from sklearn.metrics import homogeneity_completeness_v_measure
 
 
 raw = load_iris()
@@ -20,6 +21,20 @@ y_pred = array([
     1 if v == 0 else (0 if v == 1 else v)
     for v in y_pred
 ])
+
+result = DataFrame(array([y_test, y_pred]).T, columns=['test', 'predicted'])
+result['match'] = result['test'] == result['predicted']
+
+print(result['match'].value_counts(normalize=True).round(2))
+
+h, c, v = homogeneity_completeness_v_measure(y_test, y_pred)
+print(
+    '',
+    f'гомогенность = {h:.2f}',
+    f'полнота = {c:.2f}',
+    f'V-мера = {v:.2f}',
+    sep='\n'
+)
 
 
 fig = plt.figure(layout='constrained')
