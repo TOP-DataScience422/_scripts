@@ -34,7 +34,6 @@ def mlr_assessment(
         test_size=1/3,
         random_state=1
     )
-    # print(x_train.iloc[:2], x_test.iloc[:2], y_train.iloc[:2], y_test.iloc[:2], sep='\n', end='\n\n')
     model = LinearRegression()
     model.fit(x_train, y_train)
     y_predict = model.predict(x_test)
@@ -51,6 +50,7 @@ def mlr_assessment(
 data_path = Path(path[0]) / 'boston.csv'
 boston = read_csv(data_path, comment='#')
 
+# перебрать все возможные комбинации категориальных переменных, выполнить оценку эффективности с помощью метрик, сравнить полученные результаты с предварительными результатми разведочного анализа
 cases = [
     ('LSTAT', 'RM'),
     ('LSTAT', 'RM', 'PTRATIO', 'INDUS', 'TAX'),
